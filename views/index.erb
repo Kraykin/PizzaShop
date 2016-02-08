@@ -1,2 +1,22 @@
 <h2>Welcome to Pizza Shop</h2>
+
+<div class="container">
+  	<div class="row">
+  		<% @products.each do |product| %>
+  		<div class="col-md-4">
+	  		<a href="/product/<%= product.id %>"><%= product.title %></a>
+	  		<br />
+	  		<img src="<%= product.path_to_image %>" class="img-thumbnail img-responsive" alt="<%= product.title %>">
+	  		<br />
+	  		<p><%= product.description %></p>
+	  		
+	  		<p>Size: <%= product.size %> cm</p>
+			
+	  		<p>Price: <%= product.price %> rub</p>
+  		</div>
+  		<% end %>
+	</div>
+</div>
+
+<br />
 <button class="btn btn-primary" onclick="something()">Click me!</button>
