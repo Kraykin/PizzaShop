@@ -2,25 +2,25 @@
 
 <div class="container">
   	<div class="row">
-  		<% @products.each do |product| %>
+  		<% @products.each do |prod| %>
   		<div class="col-sm-4">
 	  		<div>
-	  			<a href="/product/<%= product.id %>"><%= product.title %></a>
+	  			<a href="/product/<%= prod.id %>"><%= prod.title %></a>
 	  		</div>
 	  		<div>
-	  			<img src="<%= product.path_to_image %>" class="img-thumbnail img-responsive" alt="<%= product.title %>">
+	  			<img src="<%= prod.path_to_image %>" class="img-thumbnail img-responsive" alt="<%= prod.title %>">
 	  		</div>
 	  		<div>
-	  			<%= product.description %>
+	  			<%= prod.description %>
 	  		</div>
 	  		<div>
-	  			Size: <%= product.size %> cm
+	  			Size: <%= prod.size %> cm
 	  		</div>
 	  		<div>
-	  			Price: <%= product.price %> rub
+	  			Price: <%= prod.price %> rub
 	  		</div>
 	  		<div>
-	  			<button class="btn btn-success btn-sm" onclick="add_to_cart()">Add to cart</button>
+	  			<button class="btn btn-success btn-sm" onclick="add_to_cart(<%= prod.id %>)">Add to cart</button>
 	  		</div>
   		</div>
   		<% end %>
