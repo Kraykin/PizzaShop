@@ -4,15 +4,21 @@
   	<div class="row">
   		<% @products.each do |product| %>
   		<div class="col-md-4">
-	  		<a href="/product/<%= product.id %>"><%= product.title %></a>
-	  		<br />
-	  		<img src="<%= product.path_to_image %>" class="img-thumbnail img-responsive" alt="<%= product.title %>">
-	  		<br />
-	  		<p><%= product.description %></p>
-	  		
-	  		<p>Size: <%= product.size %> cm</p>
-			
-	  		<p>Price: <%= product.price %> rub</p>
+	  		<div>
+	  			<a href="/product/<%= product.id %>"><%= product.title %></a>
+	  		</div>
+	  		<div>
+	  			<img src="<%= product.path_to_image %>" class="img-thumbnail img-responsive" alt="<%= product.title %>">
+	  		</div>
+	  		<div>
+	  			<%= product.description %>
+	  		</div>
+	  		<div>
+	  			Size: <%= product.size %> cm
+	  		</div>
+	  		<div>
+	  			Price: <%= product.price %> rub
+	  		</div>
   		</div>
   		<% end %>
 	</div>
