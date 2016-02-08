@@ -13,3 +13,15 @@ function add_to_cart(id)
 	x = x * 1 + 1;
 	window.localStorage.setItem(key, x);
 }
+
+function cart_total()
+{
+	var total = 0;
+	for(var i=0, len=localStorage.length; i<len; i++) {
+    	var key = localStorage.key(i);
+    	var value = localStorage[key];
+    	total = value * 1 + total;
+    	console.log(key + " => " + value);    	
+    }
+    alert('You select ' + total + ' item(s).');
+}
