@@ -3,11 +3,8 @@ class CreateProducts < ActiveRecord::Migration
   	create_table :products do |t|
 		t.string :title
 		t.text :description
-		t.decimal :price
-		t.decimal :size
-		t.boolean :is_spicy
-		t.boolean :is_veg
-		t.boolean :is_best_offer
+		t.decimal :price, :size
+		t.boolean :is_spicy, :is_veg, :is_best_offer
 		t.string :path_to_image
 		
 		t.timestamps
