@@ -5,7 +5,7 @@
   		<% @products.each do |prod| %>
   		<div class="col-sm-4">
 	  		<div>
-	  			<a href="/product/<%= prod.id %>"><%= prod.title %></a>
+	  			<%= prod.title %>
 	  		</div>
 	  		<div>
 	  			<img src="<%= prod.path_to_image %>" class="img-thumbnail img-responsive" alt="<%= prod.title %>">
