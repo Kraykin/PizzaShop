@@ -24,7 +24,7 @@ get '/about' do
 	erb :about
 end
 
-get '/cart' do
+post '/cart' do
 	@orders_input = params[:orders]
 	@items = parse_orders_input @orders_input
 	
@@ -61,7 +61,7 @@ def parse_orders_input orders_input
 	return arr
 end		
 
-post '/cart' do
+post '/done_order' do
   	#params[:order].store :order_content, @items.join(", ")
   	@full_order = params[:order]
   	
