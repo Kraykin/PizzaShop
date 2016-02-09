@@ -20,19 +20,19 @@ function add_to_cart(id) // получение переменно id
 	update_orders_button()
 }
 
-function update_orders_input()
+function update_orders_input() // передача списка товаров из localStorage в input
 {
 	var orders = cart_get_orders();
-	$('#orders_input').val(orders);
+	$('#orders_input').val(orders); // передача переменной в id 'orders_input'
 }
 
-function update_orders_button()
+function update_orders_button() // отображение количества товаров на кнопке 'Cart(...)'
 {
 	var text = 'Cart (' + cart_get_number_of_items() + ')';
-	$('#orders_button').val(text);
+	$('#orders_button').val(text); // передача переменной в id 'orders_button'
 }
 
-function cart_get_number_of_items()
+function cart_get_number_of_items() // получение количества товаров в корзине
 {
 	var cnt = 0; // объявление переменной
 	
@@ -50,7 +50,7 @@ function cart_get_number_of_items()
 	return cnt; // вернуть значение cnt
 }
 
-function cart_get_orders()
+function cart_get_orders() // получение списка товаров в корзине
 {
 	var orders = '';
 	
