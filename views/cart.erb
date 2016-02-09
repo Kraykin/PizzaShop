@@ -1,6 +1,6 @@
-<h2>Your order:</h2>
+<h2>Your cart</h2>
 
-<table class="table">
+<table class="table table-hover">
 	<thead>
 		<tr>
 			<th>Title</th>
@@ -8,11 +8,11 @@
 		</tr>
 	</thead>
 	<tbody>
-
+		<% @orders.each do |row| %>
 			<tr>
-	  			<td></td>
-	  			<td></td>
+	  			<td><%= row[0] %></td>
+	  			<td><%= row[1] %></td>
 	  		</tr>
-
+	  	<% end %>
 	</tbody>
 </table>
