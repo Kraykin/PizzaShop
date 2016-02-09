@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20160209173401) do
     t.string   "phone"
     t.text     "address"
     t.text     "orders_input"
+    t.text     "order_content"
     t.decimal  "total_price"
     t.decimal  "total_qty"
     t.datetime "created_at"
