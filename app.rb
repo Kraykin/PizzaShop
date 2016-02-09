@@ -63,5 +63,6 @@ post '/cart' do
 end
 
 get '/all_orders' do
+	@all_orders = Order.all
 	erb :all_orders
 end

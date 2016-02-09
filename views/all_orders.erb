@@ -1,2 +1,7 @@
 <h2>All orders</h2>
 
+<% @all_orders.each do |order| %>
+	<p>
+		<%= order.name %>
+	</p>
+<% end %>
