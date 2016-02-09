@@ -24,7 +24,7 @@ get '/about' do
 	erb :about
 end
 
-post '/cart' do
+get '/cart' do
 	@orders_input = params[:orders]
 	@items = parse_orders_input @orders_input
 	
@@ -55,3 +55,9 @@ def parse_orders_input orders_input
 
 	return arr
 end		
+
+post '/cart' do
+  	@order = Order.new params[:order]
+  	@order.save
+  	erb "Thank you #{@order.name}! Your order is accepted. <script type=\"text/javascript\">window.localStorage.clear();</script>"
+end
