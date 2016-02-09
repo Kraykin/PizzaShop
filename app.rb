@@ -30,10 +30,10 @@ get '/cart' do
 	
 	# <%= Product.find(row[0]).title %>
 	# <%= @products.find(row[0]).title %>
-	@items.each do |item|
-		# [id, cnt]
-		item[0] = @products.find(item[0])
-	end
+	# @items.each do |item|
+	# 	# [id, cnt]
+	# 	item[0] = @products.find(item[0])
+	# end
 
 	@o = {}
 
@@ -53,13 +53,28 @@ def parse_orders_input orders_input
 		arr.push arr2
 	end
 
+	arr.each do |item|
+		# [id, cnt]
+		item[0] = @products.find(item[0])
+	end
+
 	return arr
 end		
 
 post '/cart' do
-  	@order = Order.new params[:order]
-  	@order.save
-  	erb "Thank you #{@order.name}! Your order is accepted. <script type=\"text/javascript\">window.localStorage.clear();</script>"
+  	#params[:order].store :order_content, @items.join(", ")
+  	@full_order = params[:order]
+  	
+  	arr = parse_orders_input(@full_order[:orders_input])
+	arr.each do |item|
+		# [id, cnt]
+		item[0] = @products.find(item[0]).title
+	end
+  	@full_order[:order_content] = arr.join(", ")
+
+  	@done_order = Order.new @full_order
+  	@done_order.save
+  	erb "Thank you #{@full_order[:name]}! Your order is accepted. <script type=\"text/javascript\">window.localStorage.clear();</script>"
 end
 
 get '/all_orders' do
