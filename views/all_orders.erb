@@ -1,7 +1,30 @@
 <h2>All orders</h2>
 
-<% @all_orders.each do |order| %>
-	<p>
-		<%= order.name %>
-	</p>
-<% end %>
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th>Order id</th>
+			<th>Created</th>
+			<th>Order content</th>
+			<th>Client name</th>
+			<th>Phone</th>
+			<th>Address</th>
+			<th>Quantity</th>
+			<th>Price</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @all_orders.each do |order| %>
+		<tr>
+			<td><%= order.id %></td>
+			<td><%= order.created_at %></td>
+			<td><%= order.orders_input %></td>
+			<td><%= order.name %></td>
+			<td><%= order.phone %></td>
+			<td><%= order.address %></td>
+			<td><%= order.total_qty %></td>
+			<td><%= order.total_price %></td>				
+  		</tr>
+	  	<% end %>
+	</tbody>
+</table>
