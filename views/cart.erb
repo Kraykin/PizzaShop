@@ -8,9 +8,9 @@
 		</tr>
 	</thead>
 	<tbody>
-		<% @orders.each do |row| %>
+		<% @items.each do |row| %>
 			<tr>
-	  			<td><%= row[0] %></td>
+				<td><%= row[0].title %></td>
 	  			<td><%= row[1] %></td>
 	  		</tr>
 	  	<% end %>
