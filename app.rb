@@ -61,3 +61,7 @@ post '/cart' do
   	@order.save
   	erb "Thank you #{@order.name}! Your order is accepted. <script type=\"text/javascript\">window.localStorage.clear();</script>"
 end
+
+get '/all_orders' do
+	erb :all_orders
+end
