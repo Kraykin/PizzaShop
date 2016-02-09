@@ -1,22 +1,40 @@
 function something()
 {
-	var x = window.localStorage.getItem('bbb');
+	var x = window.localStorage.getItem('bbb'); // объявдение переменной и присвоение ей по ключу значения из хеша localStorage, аналог в ruby: x = hh['bbb']
 	
-	x = x * 1 + 1;
-	window.localStorage.setItem('bbb', x);
+	x = x * 1 + 1; // x * 1 перевод в integer
+	window.localStorage.setItem('bbb', x); // запись в хеш, аналог в ruby: hh['bbb'] = x
 	
-	alert('Hello ' + x + '!');
+	alert('Hello ' + x + '!'); // вывод значения 'х' в алерте
 }
 
-function add_to_cart(id)
+function add_to_cart(id) // получение переменно id
 {
 	var key = 'product_' + id;
 	
-	var x = window.localStorage.getItem(key);
+	var x = window.localStorage.getItem(key); // аналог ruby: x = localStorage['key']
 	x = x * 1 + 1;
-	window.localStorage.setItem(key, x);
+	window.localStorage.setItem(key, x); // аналог ruby: localStorage['key'] = x
 
 	alert('Items in your cart: ' + cart_get_number_of_items());
+}
+
+function cart_get_number_of_items()
+{
+	var cnt = 0; // объявление переменной
+	
+	for(var i = 0; i < window.localStorage.length; i++)	// цикл для перебора содержимого хеша localStorage
+	{
+		var key = window.localStorage.key(i); // получаем ключ, аналог в ruby: hh[key] = x
+		var value = window.localStorage.getItem(key); // получаем значение ключа
+		
+		if(key.indexOf('product_') == 0) // условие: если в ключе 'product_' находится вначале, то... key.indexOf('d') возвращает позицию, на которой находится 'd', т.е. '3'
+		{
+			cnt = cnt + value * 1;
+		}
+	}
+
+	return cnt; // вернуть значение cnt
 }
 
 function cart_total()
@@ -29,22 +47,4 @@ function cart_total()
     	console.log(key + " => " + value);    	
     }
     alert('You select ' + total + ' item(s).');
-}
-
-function cart_get_number_of_items()
-{
-	var cnt = 0;
-	
-	for(var i = 0; i < window.localStorage.length; i++)	
-	{
-		var key = window.localStorage.key(i); // получаем ключ, аналог в ruby: hh[key] = x
-		var value = window.localStorage.getItem(key); // получаем значение ключа
-		
-		if(key.indexOf('product_') == 0)
-		{
-			cnt = cnt + value * 1;
-		}
-	}
-
-	return cnt;
 }
