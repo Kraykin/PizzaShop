@@ -61,7 +61,7 @@ def parse_orders_input orders_input
 	return arr
 end		
 
-post '/done_order' do
+post '/orders/new' do
   	#params[:order].store :order_content, @items.join(", ")
   	@full_order = params[:order]
   	
@@ -77,7 +77,7 @@ post '/done_order' do
   	erb "Thank you #{@full_order[:name]}! Your order is accepted. <script type=\"text/javascript\">window.localStorage.clear();</script>"
 end
 
-get '/all_orders' do
+get '/orders' do
 	@all_orders = Order.all
-	erb :all_orders
+	erb :orders
 end
