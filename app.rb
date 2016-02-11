@@ -74,7 +74,7 @@ post '/orders/new' do
 
   	@done_order = Order.new @full_order
   	@done_order.save
-  	erb "Thank you #{@full_order[:name]}! Your order is accepted. <script type=\"text/javascript\">window.localStorage.clear();</script>"
+  	erb :new
 end
 
 get '/orders' do
