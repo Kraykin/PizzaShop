@@ -79,3 +79,9 @@ function cart_total()
     }
     alert('You select ' + total + ' item(s).');
 }
+
+function clear_cart()
+{
+	alert('Clear!');
+	return false;
+}
