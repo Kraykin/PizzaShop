@@ -82,6 +82,10 @@ function cart_total()
 
 function clear_cart()
 {
-	alert('Clear!');
+	window.localStorage.clear();
+	
+	update_orders_input();
+	update_orders_button();
+	
 	return false;
 }
