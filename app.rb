@@ -25,7 +25,7 @@ get '/about' do
 end
 
 post '/cart' do
-	@orders_input = params[:orders]
+	@orders_input = params[:items_in_cart]
 	@items = parse_orders_input @orders_input
 	
 	# <%= Product.find(row[0]).title %>
