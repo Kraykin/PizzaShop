@@ -1,62 +1,65 @@
 <h2>Your cart</h2>
 
-<table class="table table-hover">
-	<thead>
-		<tr>
-			<th>#</th>
-			<th>Title</th>
-			<th>Price</th>
-			<th>Quantity</th>
-		</tr>
-	</thead>
-	<tbody>
-		<% x = 0 %>
-		<% total_price = 0 %>
-		<% total_qty = 0 %>
-		<% @items.each do |item| %>
+
+<div id="cart">
+	<table class="table table-hover">
+		<thead>
 			<tr>
-				<td><%= x += 1 %></td>
-				<td><%= item[0].title %></td>
-				<td><%= item[0].price %></td>
-	  			<td><%= item[1] %></td>
+				<th>#</th>
+				<th>Title</th>
+				<th>Price</th>
+				<th>Quantity</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% x = 0 %>
+			<% total_price = 0 %>
+			<% total_qty = 0 %>
+			<% @items.each do |item| %>
+				<tr>
+					<td><%= x += 1 %></td>
+					<td><%= item[0].title %></td>
+					<td><%= item[0].price %></td>
+		  			<td><%= item[1] %></td>
+		  		</tr>
+		  		<% total_price += item[0].price * item[1].to_i %>
+		  		<% total_qty += item[1].to_i %>
+		  	<% end %>
+		</tbody>
+		<tfoot>
+			<tr class="info">
+				<td></td>
+				<td>Total:</td>
+				<td><%= total_price %></td>
+	  			<td><%= total_qty %></td>
 	  		</tr>
-	  		<% total_price += item[0].price * item[1].to_i %>
-	  		<% total_qty += item[1].to_i %>
-	  	<% end %>
-	</tbody>
-	<tfoot>
-		<tr class="info">
-			<td></td>
-			<td>Total:</td>
-			<td><%= total_price %></td>
-  			<td><%= total_qty %></td>
-  		</tr>
-	</tfoot>
-</table>
+		</tfoot>
+	</table>
 
-<form action="/orders/new" method="POST" role="form">
-  	
-  	<input name="order[orders_input]" type="hidden" value="<%= @orders_input %>" />
-  	<input name="order[total_price]" type="hidden" value="<%= total_price %>" />
-  	<input name="order[total_qty]" type="hidden" value="<%= total_qty %>" />
+	<form action="/orders/new" method="POST" role="form">
+	  	
+	  	<input name="order[orders_input]" type="hidden" value="<%= @orders_input %>" />
+	  	<input name="order[total_price]" type="hidden" value="<%= total_price %>" />
+	  	<input name="order[total_qty]" type="hidden" value="<%= total_qty %>" />
 
-	<div class="form-group">
-	    <label>Name</label>
-	    <input name="order[name]" type="text" class="form-control" placeholder="Your name" value="">
-	</div>
+		<div class="form-group">
+		    <label>Name</label>
+		    <input name="order[name]" type="text" class="form-control" placeholder="Your name" value="">
+		</div>
 
-	<div class="form-group">
-	    <label>Phone</label>
-	    <input name="order[phone]" type="text" class="form-control" placeholder="Your phone" value="">
-	</div>
+		<div class="form-group">
+		    <label>Phone</label>
+		    <input name="order[phone]" type="text" class="form-control" placeholder="Your phone" value="">
+		</div>
 
-	<div class="form-group">
-	    <label>Delivery address</label>
-	    <textarea id="datetimepicker" name="order[address]" type="text" class="form-control" placeholder="Delivery address" value=""></textarea>
-	</div>
+		<div class="form-group">
+		    <label>Delivery address</label>
+		    <textarea id="datetimepicker" name="order[address]" type="text" class="form-control" placeholder="Delivery address" value=""></textarea>
+		</div>
 
-	<button type="submit" class="btn btn-success">Place this order</button>
+		<button type="submit" class="btn btn-success">Place this order</button>
 
-	<button class="btn btn-danger" onclick="return clear_cart()">Clear cart</button>
+		<button class="btn btn-danger" onclick="return clear_cart()">Clear cart</button>
 
-</form>
+	</form>
+</div>
