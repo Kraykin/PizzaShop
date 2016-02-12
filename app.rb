@@ -80,6 +80,6 @@ post '/orders/new' do
 end
 
 get '/orders' do
-	@all_orders = Order.all
+	@all_orders = Order.order 'created_at DESC'
 	erb :orders
 end
