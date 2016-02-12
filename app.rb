@@ -35,7 +35,9 @@ post '/cart' do
 	# 	item[0] = @products.find(item[0])
 	# end
 
-	@o = {}
+	if @items.length == 0
+		return erb "Your cart is empty"
+	end
 
 	erb :cart
 end
