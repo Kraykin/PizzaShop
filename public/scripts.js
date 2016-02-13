@@ -1,13 +1,3 @@
-function something()
-{
-	var x = window.localStorage.getItem('bbb'); // объявдение переменной и присвоение ей по ключу значения из хеша localStorage, аналог в ruby: x = hh['bbb']
-	
-	x = x * 1 + 1; // x * 1 перевод в integer
-	window.localStorage.setItem('bbb', x); // запись в хеш, аналог в ruby: hh['bbb'] = x
-	
-	alert('Hello ' + x + '!'); // вывод значения 'х' в алерте
-}
-
 function add_to_cart(id) // получение переменно id
 {
 	var key = 'product_' + id;
