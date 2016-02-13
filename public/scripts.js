@@ -68,18 +68,6 @@ function cart_get_orders() // получение списка товаров в 
 	return orders;
 }
 
-function cart_total()
-{
-	var total = 0;
-	for(var i=0, len=localStorage.length; i<len; i++) {
-    	var key = localStorage.key(i);
-    	var value = localStorage[key];
-    	total = value * 1 + total;
-    	console.log(key + " => " + value);    	
-    }
-    alert('You select ' + total + ' item(s).');
-}
-
 function clear_cart()
 {
 	window.localStorage.clear();
