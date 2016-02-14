@@ -15,16 +15,16 @@
 	</thead>
 	<tbody>
 		<% @all_orders.each do |order| %>
-		<tr>
-			<td><%= order.id %></td>
-			<td><%= order.created_at %></td>
-			<td><%= order.order_content %></td>
-			<td><%= order.name %></td>
-			<td><%= order.phone %></td>
-			<td><%= order.address %></td>
-			<td><%= order.total_qty %></td>
-			<td><%= order.total_price %></td>				
-  		</tr>
+			<tr>
+				<td><%= order.id %></td>
+				<td><%= order.created_at %></td>
+				<td><%= order.order_content %></td>
+				<td><%= order.name %></td>
+				<td><%= order.phone %></td>
+				<td><%= order.address %></td>
+				<td><%= order.total_qty %></td>
+				<td><%= order.total_price %></td>	
+	  		</tr>
 	  	<% end %>
 	</tbody>
 </table>
